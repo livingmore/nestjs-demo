@@ -26,13 +26,13 @@ async function bootstrap() {
   app.useGlobalFilters(
     new AllExceptionFilterFilter(app.get(Logger), app.get(HttpAdapterHost)),
   );
-  app.setGlobalPrefix('api');
+  // app.setGlobalPrefix('api');
 
-  const versions = configService.get<string>('VERSION')?.split(',');
-  app.enableVersioning({
-    type: VersioningType.URI,
-    defaultVersion: versions,
-  });
+  // const versions = configService.get<string>('VERSION')?.split(',');
+  // app.enableVersioning({
+  //   type: VersioningType.URI,
+  //   defaultVersion: versions,
+  // });
 
   const port = configService.get<number>('PORT') ?? 3000;
   await app.listen(port);
